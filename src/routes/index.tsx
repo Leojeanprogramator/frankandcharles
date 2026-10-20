@@ -31,7 +31,22 @@ const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#essencia", label: "Nossa Essência" },
   { href: "#reconhecimentos", label: "Reconhecimentos" },
+  { href: "#horarios", label: "Horários" },
   { href: "#localizacao", label: "Localização" },
+];
+
+const HOURS: { day: string; periods: { label: string; time?: string }[] }[] = [
+  { day: "Segunda-feira", periods: [{ label: "Fechado" }] },
+  { day: "Terça a quinta-feira", periods: [{ label: "18h às 22h15" }] },
+  { day: "Sexta-feira", periods: [{ label: "18h às 23h" }] },
+  {
+    day: "Sábado",
+    periods: [
+      { label: "Almoço", time: "12h às 15h" },
+      { label: "Jantar", time: "18h às 23h" },
+    ],
+  },
+  { day: "Domingo", periods: [{ label: "18h às 22h15" }] },
 ];
 
 const AWARDS = [
@@ -225,6 +240,42 @@ function Index() {
             <p className="mt-6 text-lg text-muted-foreground">Leve a experiência Frank &amp; Charles até você.</p>
             <DeliveryLink className="btn-gold mt-10 self-start px-10 text-sm">Quero pedir delivery →</DeliveryLink>
           </div>
+        </div>
+      </section>
+
+      {/* Horários */}
+      <section id="horarios" className="scroll-mt-20 bg-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <p className="eyebrow">Horários de Funcionamento</p>
+          <h2 className="mt-5 text-4xl text-primary sm:text-6xl">Quando nos encontrar.</h2>
+          <div className="ornament my-10 justify-center" aria-hidden>✦</div>
+          <ul className="mx-auto max-w-2xl text-left">
+            {HOURS.map((h) => (
+              <li
+                key={h.day}
+                className="flex flex-col gap-2 border-b border-gold/30 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+              >
+                <span className="font-serif text-2xl text-primary">{h.day}</span>
+                <span className="flex flex-col gap-1 sm:items-end">
+                  {h.periods.map((p) => (
+                    <span key={p.label} className="text-base text-muted-foreground">
+                      {p.time ? (
+                        <>
+                          <span className="mr-2 text-[0.65rem] uppercase tracking-[0.22em] text-gold">
+                            {p.label}
+                          </span>
+                          <span className="font-medium text-foreground">{p.time}</span>
+                        </>
+                      ) : (
+                        <span className="font-medium text-foreground">{p.label}</span>
+                      )}
+                    </span>
+                  ))}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm italic text-muted-foreground">Não abrimos às segundas-feiras.</p>
         </div>
       </section>
 
