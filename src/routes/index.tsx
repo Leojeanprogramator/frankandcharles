@@ -31,7 +31,22 @@ const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#essencia", label: "Nossa Essência" },
   { href: "#reconhecimentos", label: "Reconhecimentos" },
+  { href: "#horarios", label: "Horários" },
   { href: "#localizacao", label: "Localização" },
+];
+
+const HOURS = [
+  { day: "Segunda-feira", periods: [{ label: "Fechado" }] },
+  { day: "Terça a quinta-feira", periods: [{ label: "18h às 22h15" }] },
+  { day: "Sexta-feira", periods: [{ label: "18h às 23h" }] },
+  {
+    day: "Sábado",
+    periods: [
+      { label: "Almoço", time: "12h às 15h" },
+      { label: "Jantar", time: "18h às 23h" },
+    ],
+  },
+  { day: "Domingo", periods: [{ label: "18h às 22h15" }] },
 ];
 
 const AWARDS = [
