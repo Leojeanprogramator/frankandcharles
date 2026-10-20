@@ -35,7 +35,7 @@ const NAV = [
   { href: "#localizacao", label: "Localização" },
 ];
 
-const HOURS = [
+const HOURS: { day: string; periods: { label: string; time?: string }[] }[] = [
   { day: "Segunda-feira", periods: [{ label: "Fechado" }] },
   { day: "Terça a quinta-feira", periods: [{ label: "18h às 22h15" }] },
   { day: "Sexta-feira", periods: [{ label: "18h às 23h" }] },
